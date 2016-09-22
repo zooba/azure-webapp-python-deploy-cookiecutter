@@ -4,7 +4,7 @@
     "site_name": "webapp",
     "static_assets_directory": "static",
     "post_deployment_scripts_directory": "post-deployment",
-    "install_requirements": true,
+    "install_requirements": ["yes", "no"],
     "requirements_filename": "requirements.txt",
     "main_module": "app",
     "script_dir": ".azure",
