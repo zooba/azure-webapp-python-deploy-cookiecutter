@@ -101,11 +101,12 @@ def publish(session, api_url, all_files):
             r.raise_for_status()
     print('Upload complete')
     print()
+{% if cookiecutter.install_requirements %}
 
     print('Executing pip install')
 
     cmd = {
-        'command': r'D:\home\Python{{ python_version_dir }}\python.exe -m pip install -r D:\home\site\wwwroot\{{ requirements_filename }}',
+        'command': r'D:\home\Python{{ python_version_dir }}\python.exe -m pip install -r D:\home\site\wwwroot\{{ cookiecutter.requirements_filename }}',
         'dir': r'D:\home\site\wwwroot',
     }
     r = session.post('{}command'.format(api_url), json=cmd)
@@ -116,6 +117,7 @@ def publish(session, api_url, all_files):
         sys.exit(2)
     print('pip install complete')
     print()
+{% endif %}
 
 if __name__ == '__main__':
     session, api_url = get_publish_session()
