@@ -10,5 +10,5 @@
     "script_dir": ".azure",
     "site_type": ["WSGI", "socket"],
     "socket_python_arguments": "-m {{ cookiecutter.main_module }} --port %HTTP_PLATFORM_PORT%",
-    "wsgi_app_object": "{{ cookiecutter.main_module }}.wsgi_app"
+    "wsgi_app_object": "{{ cookiecutter.main_module }}.wsgi_app()"
 }

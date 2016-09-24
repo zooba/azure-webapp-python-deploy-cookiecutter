@@ -94,8 +94,7 @@ def get_deployment_files():
 def publish(session, api_url, all_files):
     print('Uploading', len(all_files), 'files')
     for src, dest in all_files:
-        if VERBOSE:
-            print('  ', src, '->', dest)
+        print('  ', src, '->', dest)
         with open(src, 'rb') as f:
             r = session.put('{}vfs/site/wwwroot/{}'.format(api_url, dest), data=f, stream=True)
             r.raise_for_status()
