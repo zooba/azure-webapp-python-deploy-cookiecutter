@@ -3,12 +3,24 @@
     "cpu_arch": ["x64", "x86"],
     "site_name": "webapp",
     "static_assets_directory": "static",
-    "post_deployment_scripts_directory": "post-deployment",
-    "install_requirements": ["yes", "no"],
+    "install_requirements": ["y", "n"],
     "requirements_filename": "requirements.txt",
     "main_module": "app",
     "script_dir": ".azure",
     "site_type": ["WSGI", "socket"],
     "socket_python_arguments": "-m {{ cookiecutter.main_module }} --port %HTTP_PLATFORM_PORT%",
-    "wsgi_app_object": "{{ cookiecutter.main_module }}.wsgi_app()"
+    "wsgi_app_object": "{{ cookiecutter.main_module }}.wsgi_app()",
+    "_visual_studio": {
+        "python_version": { "label": "Python Version", "description": "The version of Python to deploy on Azure App Service." },
+        "cpu_arch": { "label": "Architecture", "description": "The bitness of the deployed Python." },
+        "site_name": { "label": "Site name", "description": "The name of your site. Will become <site_name>.azurewebsites.net." },
+        "static_assets_directory": {"label": "Static directory", "description": "The subdirectory of your project containing static files." },
+        "install_requirements": {"label": "Install requirements.txt", "description": "Whether to trigger a 'pip install -r requirements.txt' after deployment.", "selector": "yesno" },
+        "requirements_filename": {"label": "Requirements file", "description": "The name of the file containing package requirements." },
+        "main_module": {"label": "Main module", "description": "The Python module containing your WSGI app or main function." },
+        "script_dir": {"label": "Scripts directory", "description": "The subdirectory of your project to receive the deployment scripts." },
+        "site_type": {"label": "Site type", "description": "Integration mode to use with the web server." },
+        "socket_python_arguments": {"label": "Socket arguments", "description": "The command to run when using a socket type site." },
+        "wsgi_app_object": {"label": "WSGI app", "description": "The variable or function providing the WSGI application." }
+    }
 }

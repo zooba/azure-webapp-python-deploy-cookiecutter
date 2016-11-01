@@ -100,7 +100,7 @@ def publish(session, api_url, all_files):
             r.raise_for_status()
     print('Upload complete')
     print()
-{% if cookiecutter.install_requirements == 'yes' %}
+{% if cookiecutter.install_requirements == 'y' %}
 
     print('Executing pip install')
 
